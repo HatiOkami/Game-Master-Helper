@@ -47,30 +47,17 @@ export class HttpApiService {
     this._apiUri = config.apiUrl;
   }
 
-  public delete(url: string, params?: any, responseTypeExpected?: string): Observable<any> {
+  protected delete(url: string, params?: any, responseTypeExpected?: string): Observable<any> {
     const httpApiParams = this._manageHttpRequest(url, null, params, responseTypeExpected);
     return this._http.delete(httpApiParams.url, httpApiParams.options);
   }
 
-  public get(url: string, params?: any, responseTypeExpected?: string): Observable<any> {
+  // test avec <t>
+  protected get(url: string, params?: any, responseTypeExpected?: string): Observable<any> {
     const httpApiParams = this._manageHttpRequest(url, null, params, responseTypeExpected);
     return this._http.get(httpApiParams.url, httpApiParams.options);
   }
-
-  public patch(url: string, body: any, params?: any, responseTypeExpected?: string): Observable<any> {
-    const httpApiParams = this._manageHttpRequest(url, body, params, responseTypeExpected);
-    return this._http.patch(httpApiParams.url, httpApiParams.body, httpApiParams.options);
-  }
-
-  public post(url: string, body: any, params?: any, responseTypeExpected?: string): Observable<any> {
-    const httpApiParams = this._manageHttpRequest(url, body, params, responseTypeExpected);
-    return this._http.post(httpApiParams.url, httpApiParams.body, httpApiParams.options);
-  }
-
-  public put(url: string, body: any, params?: any, responseTypeExpected?: string): Observable<any> {
-    const httpApiParams = this._manageHttpRequest(url, body, params, responseTypeExpected);
-    return this._http.put(httpApiParams.url, httpApiParams.body, httpApiParams.options);
-  }
+  // file upload ?
 
   protected getApiHeaders(): HttpHeaders {
     const headers = {
@@ -79,6 +66,21 @@ export class HttpApiService {
     };
 
     return new HttpHeaders(headers);
+  }
+
+  protected patch(url: string, body: any, params?: any, responseTypeExpected?: string): Observable<any> {
+    const httpApiParams = this._manageHttpRequest(url, body, params, responseTypeExpected);
+    return this._http.patch(httpApiParams.url, httpApiParams.body, httpApiParams.options);
+  }
+
+  protected post(url: string, body: any, params?: any, responseTypeExpected?: string): Observable<any> {
+    const httpApiParams = this._manageHttpRequest(url, body, params, responseTypeExpected);
+    return this._http.post(httpApiParams.url, httpApiParams.body, httpApiParams.options);
+  }
+
+  protected put(url: string, body: any, params?: any, responseTypeExpected?: string): Observable<any> {
+    const httpApiParams = this._manageHttpRequest(url, body, params, responseTypeExpected);
+    return this._http.put(httpApiParams.url, httpApiParams.body, httpApiParams.options);
   }
 
   private _manageHttpRequest(url: string, body: any, params?: any, responseTypeExpected?: string): HttpApiHelperParams {
