@@ -5,7 +5,6 @@ import { withDestroy } from './shared/mixins/with-destroy.mixin';
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.scss'],
 })
 export class AppComponent extends withDestroy() implements OnInit, OnDestroy {
   public start = false;

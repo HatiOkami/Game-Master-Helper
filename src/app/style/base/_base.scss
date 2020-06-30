@@ -1,0 +1,25 @@
+html {
+  @include respond('tiny') {
+    font-size: 50%; //1 rem = 8px
+  }
+
+  @include respond('small') {
+    font-size: 56.25%; //1 rem = 9px
+  }
+
+  @include respond('medium') {
+    font-size: 62.5%; //1 rem = 10px
+  }
+
+  @include respond('big') {
+    font-size: 75%; //1rem = 12px
+  }
+}
+
+body {
+  margin: 0;
+}
+
+* {
+  box-sizing: border-box;
+}
