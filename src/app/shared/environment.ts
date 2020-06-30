@@ -7,6 +7,7 @@ export let ENV_CONFIG = new InjectionToken<EnvConfig>('configuration based on en
 export const DEFAULT_CONFIG: EnvConfig = {
   production: false,
   apiUrl: '',
+  apiVersion: '',
   versions: {
     version: '',
     revision: '',

@@ -21,7 +21,6 @@ export class ConfigurationService {
         if (xhr.readyState === XMLHttpRequest.DONE && xhr.status === 200) {
           this.settings = JSON.parse(xhr.responseText);
           environment.apiUrl = this.settings.apiUrl;
-          environment.identityProvider = this.settings.identityProvider;
           environment.apiVersion = this.settings.apiVersion;
           resolve();
         } else if (xhr.readyState === XMLHttpRequest.DONE) {
