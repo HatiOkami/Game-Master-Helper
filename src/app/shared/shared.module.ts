@@ -12,7 +12,7 @@ import { HttpApiService } from './services/http-api.service';
 @NgModule({
   imports: [CommonModule, FormsModule, HttpClientModule, ReactiveFormsModule, RouterModule],
   declarations: [BallotBoxComponent, CardComponent],
-  exports: [CommonModule, FormsModule, ReactiveFormsModule],
+  exports: [BallotBoxComponent, CardComponent, CommonModule, FormsModule, ReactiveFormsModule],
 })
 export class SharedModule {
   public static forRoot(): ModuleWithProviders {
