@@ -1,5 +1,10 @@
-<router-outlet></router-outlet>
-<div *ngIf="start" class="isatu">
-  <div class="tamago"></div>
-  <div class="sheru"></div>
+<div class="gm-app">
+  <div #wrapper role="main" class="body-wrapper">
+    <div (click)="goTo()">click</div>
+    <router-outlet></router-outlet>
+  </div>
+  <div *ngIf="start" class="isatu">
+    <div class="tamago"></div>
+    <div class="sheru"></div>
+  </div>
 </div>
