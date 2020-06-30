@@ -1,10 +1,10 @@
+import { APP_INITIALIZER, NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule, APP_INITIALIZER } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { ConfigurationService } from './shared/services/env-configuration.service';
 import { ENV_CONFIG } from './shared/environment';
+import { ConfigurationService } from './shared/services/env-configuration.service';
 
 function configurationInit(config: ConfigurationService) {
   return () => config.init();

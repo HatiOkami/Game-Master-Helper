@@ -3,7 +3,8 @@ import { HttpClientModule } from '@angular/common/http';
 import { ModuleWithProviders, NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
-import { ENV_CONFIG, DEFAULT_CONFIG } from './environment';
+
+import { DEFAULT_CONFIG, ENV_CONFIG } from './environment';
 import { HttpApiService } from './services/http-api.service';
 
 @NgModule({
