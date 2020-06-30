@@ -10,26 +10,28 @@ const routes: Routes = [
   {
     path: '',
     component: GameRouterComponent,
-  },
-  {
-    path: 'published',
-    component: GamePublishedComponent,
-  },
-  {
-    path: 'my-games',
-    component: GamePersonalComponent,
-  },
-  {
-    path: 'games/:id',
-    component: GameInformationComponent,
-  },
-  {
-    path: 'games/add',
-    component: GameInformationComponent,
-  },
-  {
-    path: 'games/:id/edit',
-    component: GameInformationComponent,
+    children: [
+      {
+        path: 'published',
+        component: GamePublishedComponent,
+      },
+      {
+        path: 'my-games',
+        component: GamePersonalComponent,
+      },
+      {
+        path: 'games/:id',
+        component: GameInformationComponent,
+      },
+      {
+        path: 'games/add',
+        component: GameInformationComponent,
+      },
+      {
+        path: 'games/:id/edit',
+        component: GameInformationComponent,
+      },
+    ],
   },
 ];
 
