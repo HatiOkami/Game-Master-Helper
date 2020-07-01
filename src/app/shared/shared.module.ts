@@ -7,12 +7,22 @@ import { RouterModule } from '@angular/router';
 import { BallotBoxComponent } from './component/ballot-box/ballot-box.component';
 import { CardComponent } from './component/card/card.component';
 import { DEFAULT_CONFIG, ENV_CONFIG } from './environment';
+import { HeaderComponent } from './layout/header/header.component';
+import { NavigationComponent } from './layout/navigation/navigation.component';
 import { HttpApiService } from './services/http-api.service';
 
 @NgModule({
   imports: [CommonModule, FormsModule, HttpClientModule, ReactiveFormsModule, RouterModule],
-  declarations: [BallotBoxComponent, CardComponent],
-  exports: [BallotBoxComponent, CardComponent, CommonModule, FormsModule, ReactiveFormsModule],
+  declarations: [BallotBoxComponent, CardComponent, HeaderComponent, NavigationComponent],
+  exports: [
+    BallotBoxComponent,
+    CardComponent,
+    HeaderComponent,
+    NavigationComponent,
+    CommonModule,
+    FormsModule,
+    ReactiveFormsModule,
+  ],
 })
 export class SharedModule {
   public static forRoot(): ModuleWithProviders {
