@@ -1,6 +1,7 @@
-import { Component, OnInit, OnDestroy } from '@angular/core';
-import { LooKey } from './shared/utils/looKey';
+import { Component, OnDestroy, OnInit } from '@angular/core';
+
 import { withDestroy } from './shared/mixins/with-destroy.mixin';
+import { LooKey } from './shared/utils/looKey';
 
 @Component({
   selector: 'app-root',

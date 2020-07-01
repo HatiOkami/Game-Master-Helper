@@ -1,10 +1,11 @@
+import { APP_INITIALIZER, NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule, APP_INITIALIZER } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { ConfigurationService } from './shared/services/env-configuration.service';
 import { ENV_CONFIG } from './shared/environment';
+import { ConfigurationService } from './shared/services/env-configuration.service';
+import { SharedModule } from './shared/shared.module';
 
 function configurationInit(config: ConfigurationService) {
   return () => config.init();
@@ -16,7 +17,7 @@ function getConfiguration(config: ConfigurationService) {
 
 @NgModule({
   declarations: [AppComponent],
-  imports: [AppRoutingModule, BrowserModule],
+  imports: [AppRoutingModule, BrowserModule, SharedModule.forRoot()],
   providers: [
     {
       provide: APP_INITIALIZER,

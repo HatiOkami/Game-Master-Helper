@@ -1,0 +1,10 @@
+published
+<ng-container *ngFor="let game of games">
+  <gm-card
+    [title]="game.title"
+    [body]="game.description"
+    [adds]="game.adjectives"
+    [backgorund]="game.image"
+    (action)="openGame($event)"
+  >test</gm-card>
+</ng-container>
