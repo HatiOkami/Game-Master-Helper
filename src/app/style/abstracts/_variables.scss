@@ -4,4 +4,8 @@ $path-image: '#{$path-base}images/';
 $path-fonts: '#{$path-base}fonts/';
 
 // COLORS
-$red: hsla(359, 75%, 41%, 1);
+$dark: hsla(190, 20%, 10%, 1);
+$light: hsla(190, 10%, 90%, 1);
+
+$grey-blue: hsla(200, 40%, 70%, 1);
+$red: hsla(360, 75%, 40%, 1);
