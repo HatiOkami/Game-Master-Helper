@@ -2,6 +2,8 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
 const routes: Routes = [
+  { path: '', redirectTo: '/home', pathMatch: 'full' },
+  { path: 'home', redirectTo: '/home', pathMatch: 'full' },
   { path: 'games', loadChildren: () => import('./features/games/games.module').then(m => m.GamesModule) },
 ];
 
