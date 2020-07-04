@@ -27,7 +27,7 @@ import { HttpApiService } from './services/http-api.service';
   ],
 })
 export class SharedModule {
-  public static forRoot(): ModuleWithProviders {
+  public static forRoot(): ModuleWithProviders<SharedModule> {
     return {
       ngModule: SharedModule,
       providers: [HttpApiService, { provide: ENV_CONFIG, useValue: DEFAULT_CONFIG }],
