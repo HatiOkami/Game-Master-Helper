@@ -1,3 +1,5 @@
+/* eslint-disable @typescript-eslint/explicit-module-boundary-types */
+/* eslint-disable @typescript-eslint/no-unsafe-member-access */
 export class LooKey {
   public static karaOwaru(a: any, b: string[]): string[] {
     switch (a.key) {
