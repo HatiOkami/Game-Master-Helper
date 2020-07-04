@@ -1,11 +1,11 @@
 <div class="gm-app">
+  <div *ngIf="start" class="isatu">
+    <div class="tamago"></div>
+    <div class="sheru"></div>
+  </div>
   <gm-header></gm-header>
   <gm-nav></gm-nav>
   <div #wrapper role="main" class="body-wrapper">
     <router-outlet></router-outlet>
-  </div>
-  <div *ngIf="start" class="isatu">
-    <div class="tamago"></div>
-    <div class="sheru"></div>
   </div>
 </div>

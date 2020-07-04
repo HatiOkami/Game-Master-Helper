@@ -1,34 +1,55 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { withDestroy } from 'src/app/shared/mixins/with-destroy.mixin';
 
+import GamesMock from '../../../../assets/mock-json/games-mock.json';
 import { Game } from '../../../model/entities';
 
 @Component({
   selector: '',
   templateUrl: './published.component.html',
+  styleUrls: ['./published.component.scss'],
 })
-export class GamePublishedComponent implements OnInit {
+export class GamePublishedComponent extends withDestroy() implements OnInit, OnDestroy {
+  public dummy: number[];
   public games: Game[] = [];
-  constructor(private router: Router) {}
+  constructor(private router: Router) {
+    super();
+  }
+
+  ngOnDestroy() {
+    window.removeEventListener('resize', this.onWindowSize.bind(this), true);
+    super.ngOnDestroy();
+  }
 
   ngOnInit() {
-    const gameTest = new Object({
-      id: 1,
-      title: 'test carte',
-      description: 'ceci est une courte description pour tester les cartes de jeux',
-      adjectives: {
-        genres: [{ id: 1, label: 'test genre' }],
-        themes: [
-          { id: 1, label: 'test thèmes 1' },
-          { id: 2, label: 'test thèmes 2' },
-        ],
-      },
-      image: null,
-    }) as Game;
-    this.games.push(gameTest);
+    this.games = GamesMock;
+    window.addEventListener('resize', this.onWindowSize.bind(this), true);
+    this.dummyCreation(this.games.length);
   }
 
   public openGame(id: string) {
-    this.router.navigate([`/games/'${id}'`]);
+    this.router.navigate([`/games/${id}`]);
+  }
+
+  private dummyCalculation(gamesNumber: number): number {
+    const innerWidth = Math.max(document.documentElement.clientWidth || 0, window.innerWidth || 0);
+    const cardSize = 19 * parseFloat(getComputedStyle(document.documentElement).fontSize);
+    const navigationSize = 7 * parseFloat(getComputedStyle(document.documentElement).fontSize);
+    const totalCardsSize = gamesNumber * cardSize;
+    const disponibleWidth = innerWidth - navigationSize;
+    const remainder = disponibleWidth - Math.floor(totalCardsSize / disponibleWidth) * cardSize;
+    const total = Math.floor(remainder / cardSize);
+    return total > 1 ? total : 2;
+  }
+
+  private dummyCreation(gamesNumber: number) {
+    this.dummy = Array(this.dummyCalculation(gamesNumber))
+      .fill('')
+      .map((x, i) => i);
+  }
+
+  private onWindowSize() {
+    this.dummyCreation(this.games.length);
   }
 }

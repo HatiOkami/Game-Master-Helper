@@ -1,9 +1,15 @@
-<ng-container *ngFor="let game of games">
-  <gm-card
-    [title]="game.title"
-    [body]="game.description"
-    [adds]="game.adjectives"
-    [background]="game.image"
-    (action)="openGame($event)"
-  ></gm-card>
-</ng-container>
+<div class="cards-list">
+  <ng-container *ngFor="let game of games">
+    <gm-card
+      [id]="game.id"
+      [title]="game.title"
+      [body]="game.description"
+      [adds]="game.adjectives"
+      [background]="game.image"
+      (action)="openGame($event)"
+    ></gm-card>
+  </ng-container>
+  <ng-container *ngFor="let box of dummy">
+    <div class="card flex-dummy-hack"></div>
+  </ng-container>
+</div>

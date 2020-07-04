@@ -1,20 +1,20 @@
-// html {
-//   @include respond('tiny') {
-//     font-size: 50%; //1 rem = 8px
-//   }
+html {
+  @include respond('xs') {
+    font-size: 62.5%; //1 rem = 10px
+  }
 
-//   @include respond('small') {
-//     font-size: 56.25%; //1 rem = 9px
-//   }
+  @include respond('s') {
+    font-size: 75%; //1 rem = 12px
+  }
 
-//   @include respond('medium') {
-//     font-size: 62.5%; //1 rem = 10px
-//   }
+  @include respond('m') {
+    font-size: 87.5%; //1 rem = 14px
+  }
 
-//   @include respond('big') {
-//     font-size: 75%; //1rem = 12px
-//   }
-// }
+  @include respond('l') {
+    font-size: 100%; //1 rem = 16px
+  }
+}
 
 body {
   margin: 0;
@@ -26,6 +26,7 @@ body {
 }
 
 .body-wrapper {
-  min-height: calc(100vh - 5rem);
-  padding: 1rem 7rem 0rem;
+  height: calc(100vh - 5rem);
+  padding: 1rem 1rem 0 6rem;
+  overflow: auto;
 }
