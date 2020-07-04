@@ -1,5 +1,7 @@
+import { Adjective } from './adjective.entity';
+
 export interface Game {
-  adjectives: string[];
+  adjectives: Adjective;
   description: string;
   id: number;
   image: string;

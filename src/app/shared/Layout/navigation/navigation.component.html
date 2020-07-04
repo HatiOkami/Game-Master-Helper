@@ -4,11 +4,11 @@
     <div *ngIf="isOpen">X</div>
   </div>
   <div class="gm-nav__items">
-    <div class="gm-nav__item">
+    <div (click)="goTo('home')" class="gm-nav__item">
       <div class=""></div>
       <div *ngIf="isOpen" class="">dashboard</div>
     </div>
-    <div class="gm-nav__item">
+    <div (click)="goTo('games/my-games')" class="gm-nav__item">
       <div class=""></div>
       <div *ngIf="isOpen" class="">Games</div>
     </div>

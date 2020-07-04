@@ -1,4 +1,5 @@
-import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { Adjective } from 'src/app/model/entities';
 
 @Component({
   selector: 'gm-card',
@@ -6,8 +7,8 @@ import { Component, EventEmitter, Input, Output } from '@angular/core';
 })
 export class CardComponent {
   @Output() action = new EventEmitter();
-  @Input() adds: string[];
-  @Input() backgorund: string;
+  @Input() adds: Adjective;
+  @Input() background: string;
   @Input() body: string;
   @Input() title: string;
 
