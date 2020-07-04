@@ -1,23 +1,24 @@
-html {
-  @include respond('tiny') {
-    font-size: 50%; //1 rem = 8px
-  }
+// html {
+//   @include respond('tiny') {
+//     font-size: 50%; //1 rem = 8px
+//   }
 
-  @include respond('small') {
-    font-size: 56.25%; //1 rem = 9px
-  }
+//   @include respond('small') {
+//     font-size: 56.25%; //1 rem = 9px
+//   }
 
-  @include respond('medium') {
-    font-size: 62.5%; //1 rem = 10px
-  }
+//   @include respond('medium') {
+//     font-size: 62.5%; //1 rem = 10px
+//   }
 
-  @include respond('big') {
-    font-size: 75%; //1rem = 12px
-  }
-}
+//   @include respond('big') {
+//     font-size: 75%; //1rem = 12px
+//   }
+// }
 
 body {
   margin: 0;
+  background: $light;
 }
 
 * {
@@ -26,5 +27,5 @@ body {
 
 .body-wrapper {
   min-height: calc(100vh - 5rem);
-  padding: 0 6rem;
+  padding: 1rem 7rem 0rem;
 }

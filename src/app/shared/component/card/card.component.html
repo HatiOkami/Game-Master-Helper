@@ -1,1 +1,8 @@
-Card
+<div class="card">
+  <h5 class="card__title">{{ title }}</h5>
+  <div class="card__body">{{ body }}</div>
+  <div class="card__adds" *ngIf="adds">
+    <div class="card__adjective--genres"><span>genres : </span>{{ adds.genres | joinDataList }}</div>
+    <div class="card__adjective--themes"><span>thèmes : </span>{{ adds.themes | joinDataList }}</div>
+  </div>
+</div>

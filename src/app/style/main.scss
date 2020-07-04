@@ -10,9 +10,10 @@
 @import './base/typography';
 @import './base/utilities';
 
+@import './themes/general';
+
 @import './layout/global';
 @import './layout/header';
 @import './layout/navigation';
 
-@import './themes/general';
-
+@import './components/card';

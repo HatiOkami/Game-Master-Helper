@@ -10,7 +10,7 @@ import { HomeRoutingModule } from './home-routing.module';
   providers: [],
 })
 export class HomeModule {
-  public static forRoot(): ModuleWithProviders {
+  public static forRoot(): ModuleWithProviders<HomeModule> {
     return {
       ngModule: HomeModule,
     };

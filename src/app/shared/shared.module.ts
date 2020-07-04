@@ -9,23 +9,25 @@ import { CardComponent } from './component/card/card.component';
 import { DEFAULT_CONFIG, ENV_CONFIG } from './environment';
 import { HeaderComponent } from './layout/header/header.component';
 import { NavigationComponent } from './layout/navigation/navigation.component';
+import { JoinDataListPipe } from './pipes/join-data-list.pipe';
 import { HttpApiService } from './services/http-api.service';
 
 @NgModule({
   imports: [CommonModule, FormsModule, HttpClientModule, ReactiveFormsModule, RouterModule],
-  declarations: [BallotBoxComponent, CardComponent, HeaderComponent, NavigationComponent],
+  declarations: [BallotBoxComponent, CardComponent, HeaderComponent, NavigationComponent, JoinDataListPipe],
   exports: [
     BallotBoxComponent,
     CardComponent,
     HeaderComponent,
     NavigationComponent,
+    JoinDataListPipe,
     CommonModule,
     FormsModule,
     ReactiveFormsModule,
   ],
 })
 export class SharedModule {
-  public static forRoot(): ModuleWithProviders {
+  public static forRoot(): ModuleWithProviders<SharedModule> {
     return {
       ngModule: SharedModule,
       providers: [HttpApiService, { provide: ENV_CONFIG, useValue: DEFAULT_CONFIG }],

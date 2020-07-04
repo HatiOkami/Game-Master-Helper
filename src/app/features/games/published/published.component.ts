@@ -16,7 +16,13 @@ export class GamePublishedComponent implements OnInit {
       id: 1,
       title: 'test carte',
       description: 'ceci est une courte description pour tester les cartes de jeux',
-      adjectives: ['test', 'test2'],
+      adjectives: {
+        genres: [{ id: 1, label: 'test genre' }],
+        themes: [
+          { id: 1, label: 'test thèmes 1' },
+          { id: 2, label: 'test thèmes 2' },
+        ],
+      },
       image: null,
     }) as Game;
     this.games.push(gameTest);
