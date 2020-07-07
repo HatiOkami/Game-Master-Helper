@@ -4,6 +4,7 @@ import { Adjective } from 'src/app/model/entities';
 @Component({
   selector: 'gm-card',
   templateUrl: './card.component.html',
+  styleUrls: ['./card.component.scss'],
 })
 export class CardComponent {
   @Output() action = new EventEmitter();

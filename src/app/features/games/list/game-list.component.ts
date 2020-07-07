@@ -2,15 +2,15 @@ import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { withDestroy } from 'src/app/shared/mixins/with-destroy.mixin';
 
-import GamesMock from '../../../../assets/mock-json/games-mock.json';
+import GamesMock from '../../../../assets/mock-json/games-list-mock.json';
 import { Game } from '../../../model/entities';
 
 @Component({
   selector: '',
-  templateUrl: './published.component.html',
-  styleUrls: ['./published.component.scss'],
+  templateUrl: './game-list.component.html',
+  styleUrls: ['./game-list.component.scss'],
 })
-export class GamePublishedComponent extends withDestroy() implements OnInit, OnDestroy {
+export class GameListComponent extends withDestroy() implements OnInit, OnDestroy {
   public dummy: number[];
   public games: Game[] = [];
   constructor(private router: Router) {

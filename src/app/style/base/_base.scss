@@ -18,7 +18,8 @@ html {
 
 body {
   margin: 0;
-  background: $light;
+  background-color: rgba($night, 0.97);
+  color: $light;
 }
 
 * {
@@ -26,7 +27,7 @@ body {
 }
 
 .body-wrapper {
-  height: calc(100vh - 5rem);
+  height: calc(100vh - 4rem);
   padding: 1rem 1rem 0 6rem;
   overflow: auto;
 }

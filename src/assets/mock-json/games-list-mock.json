@@ -18,7 +18,7 @@
   },
   {
     "id": 2,
-    "title": "donjon et dragons et la vie ta mere la vie de oim je vais peter un cable si ca continue putain de bordel de merde",
+    "title": "donjon et dragons",
     "description": "Dans D&D, chaque joueur crée un aventurier (un personnage), qui fait partie d’un groupe (des amis en général). Ensemble, le groupe peut explorer un donjon abandonné, une cité en ruine, un château hanté, un temple perdu au cœur de la jungle, ou une caverne s’enfonçant au sein d’une montagne. Les aventuriers peuvent résoudre des énigmes, parler entre eux, combattre des créatures fantastiques, découvrir des objets fabuleux et bien d’autres trésors.",
     "adjectives": {
       "genres": [
@@ -27,6 +27,19 @@
         { "id": 2, "label": "enquête" }
       ],
       "themes": [{ "id": 3, "label": "fantasy" }]
+    },
+    "image": null
+  },
+  {
+    "id": 3,
+    "title": "degenesis",
+    "description": "Dans Degenesis, tout est une question de choix, pendant la partie comme durant la création des personnages. Sept Cultures et treize Cultes sont pris dans la tourmente des conflits mondiaux de l’an 2595. L'essor des clans commence tout juste à combler l'abîme qui les sépare, creusé par les secrets sordides, les particularismes et les vieilles rancunes. Les personnages joueurs appartiennent à ce monde, où les intrigues politiques et la découverte de bunkers du Recombination Group font partie intégrante de l’activité quotidienne. Ils doivent s’intégrer à une société saturée de préjudices, d’arrangements et d’opinions préconçues.",
+    "adjectives": {
+      "genres": [
+        { "id": 2, "label": "aventure" },
+        { "id": 2, "label": "enquête" }
+      ],
+      "themes": [{ "id": 4, "label": "post-apo" }]
     },
     "image": null
   }

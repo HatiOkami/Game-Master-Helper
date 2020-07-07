@@ -2,13 +2,12 @@ import { NgModule } from '@angular/core';
 
 import { SharedModule } from '../../shared/shared.module';
 
+import { GameEditComponent } from './edit/game-edit.component';
 import { GamesRoutingModule } from './games-routing.module';
-import { GameInformationComponent } from './information/information.component';
-import { GamePersonalComponent } from './personal/personal.component';
-import { GamePublishedComponent } from './published/published.component';
+import { GameListComponent } from './list/game-list.component';
 
 @NgModule({
-  declarations: [GameInformationComponent, GamePersonalComponent, GamePublishedComponent],
+  declarations: [GameEditComponent, GameListComponent],
   imports: [GamesRoutingModule, SharedModule],
   providers: [],
 })
