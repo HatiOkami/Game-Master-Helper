@@ -1,9 +1,0 @@
-<ng-container *ngFor="let game of games">
-  <gm-card
-    [title]="game.title"
-    [body]="game.description"
-    [adds]="game.adjectives"
-    [background]="game.image"
-    (action)="openGame($event)"
-  ></gm-card>
-</ng-container>

@@ -1,0 +1,31 @@
+{
+  "id": 1,
+  "generalInformations": {
+    "title": "",
+    "description": "",
+    "adjectives": {
+      "genres": [
+        { "id": 1, "label": "action" },
+        { "id": 2, "label": "aventure" }
+      ],
+      "themes": [
+        { "id": 1, "label": "enfance" },
+        { "id": 2, "label": "horreur" }
+      ]
+    },
+    "image": null
+  },
+  "personal": {
+    "partyPlayed": {
+      "totalOneShot": 0,
+      "totalCampaign": 2
+    }
+  },
+  "gameMaster": {
+    "group":[
+      {
+
+      }
+    ]
+  }
+}

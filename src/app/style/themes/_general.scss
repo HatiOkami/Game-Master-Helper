@@ -3,8 +3,8 @@
 $primary: $grey-blue;
 
 // fonts
-* {
-  font-family: Big-John;
+html {
+  font-family: Spartan;
 }
 
 h1,
@@ -13,5 +13,11 @@ h3,
 h4,
 h5,
 h6 {
-  font-family: Big-John-Bold;
+  font-family: Spartan-Bold;
+  margin: 1rem;
+}
+
+.variant-font{
+  font-family: Big-John;
+  text-transform: uppercase;
 }

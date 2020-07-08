@@ -1,0 +1,21 @@
+.gm-input {
+  width: 100%;
+  margin: 1rem;
+
+  &__label{
+    font-family: Spartan-Light;
+    font-style: italic;
+    color: $grey-blue;
+  }
+
+  &__input,
+  &__text-area {
+    border: none;
+    outline: none;
+    background: $light;
+  }
+
+  &__text-area {
+    resize: none;
+  }
+}

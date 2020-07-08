@@ -1,7 +1,7 @@
 .gm-nav {
   position: absolute;
   height: 100vh;
-  width: 6rem;
+  width: 5rem;
   background-color: $dark;
   color: $light;
   top: 0;
@@ -11,7 +11,7 @@
   }
 
   &__switch {
-    height: 5rem;
+    height: 4rem;
     padding: 2rem;
     cursor: pointer;
   }
@@ -20,7 +20,7 @@
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;
-    height: calc(100vh - 5rem);
+    height: calc(100vh - 4rem);
   }
 
   &__item {

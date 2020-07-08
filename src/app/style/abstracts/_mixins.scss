@@ -1,25 +1,25 @@
-// @mixin respond($breakpoint) {
-//   @if $breakpoint == 'tiny' {
-//     @media only screen and (max-width: 37.5em) {
-//       @content;
-//     } //600px
-//   }
-//   @if $breakpoint == 'small' {
-//     @media only screen and (max-width: 56.25em) {
-//       @content;
-//     } //900px
-//   }
-//   @if $breakpoint == 'medium' {
-//     @media only screen and (max-width: 75em) {
-//       @content;
-//     } //1200px
-//   }
-//   @if $breakpoint == 'big' {
-//     @media only screen and (min-width: 112.5em) {
-//       @content;
-//     } //1800
-//   }
-// }
+@mixin respond($breakpoint) {
+  @if $breakpoint == 'xxs' {
+    @media only screen and (max-width: 600px) {
+      @content;
+    }
+  }
+  @if $breakpoint == 's' {
+    @media only screen and (max-width: 900px) {
+      @content;
+    }
+  }
+  @if $breakpoint == 'm' {
+    @media only screen and (max-width: 1200px) {
+      @content;
+    }
+  }
+  @if $breakpoint == 'l' {
+    @media only screen and (min-width: 1201px) {
+      @content;
+    }
+  }
+}
 
 @mixin clearfix {
   &::after {
