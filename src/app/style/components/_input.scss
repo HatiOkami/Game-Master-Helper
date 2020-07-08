@@ -3,6 +3,7 @@
   margin: 1rem;
 
   &__label{
+    font-family: Spartan-Light;
     font-style: italic;
     color: $grey-blue;
   }
@@ -11,12 +12,10 @@
   &__text-area {
     border: none;
     outline: none;
-    background: transparent;
+    background: $light;
   }
 
   &__text-area {
     resize: none;
-    background-color: $light;
-    width: 100%;
   }
 }
