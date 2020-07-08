@@ -1,8 +1,8 @@
-import { Pipe, PipeTransform } from '@angular/core';
 import { createRoutingFactory, SpectatorRouting } from '@ngneat/spectator/jest';
 
-import { CardComponent } from './card.component';
 import { JoinDataListPipe } from '../../pipes/join-data-list.pipe';
+
+import { CardComponent } from './card.component';
 
 describe('CardComponent', () => {
   const createComponent = createRoutingFactory({

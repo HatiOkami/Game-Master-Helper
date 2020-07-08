@@ -18,14 +18,14 @@
           <textarea class="gm-input__text-area"></textarea>
         </div>
       </div>
-      <div>
-        <div class="gm-input">
+      <div [formGroup]="genreForm">
+        <div class="gm-input" *ngIf="genreForm">
           <div class="gm-input__label">genres</div>
-          <select name="genre" id="genre"></select>
+          <gm-chooser [dataSource]="genre" [editMode]="false" formControlName="genres"></gm-chooser>
         </div>
         <div class="gm-input">
           <div class="gm-input__label">thèmes</div>
-          <select name="themes" id="themes"></select>
+          <gm-chooser [dataSource]="genre" [editMode]="true" formControlName="genres"></gm-chooser>
         </div>
       </div>
     </div>
