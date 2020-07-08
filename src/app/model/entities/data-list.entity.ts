@@ -1,4 +1,4 @@
-export interface DataList {
+export interface DataListItem {
   id: number;
-  label: string;
+  name: string;
 }

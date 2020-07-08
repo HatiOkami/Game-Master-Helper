@@ -1,5 +1,5 @@
 import { Pipe, PipeTransform } from '@angular/core';
-import { DataList } from 'src/app/model/entities';
+import { DataListItem } from 'src/app/model/entities';
 
 @Pipe({
   name: 'joinDataList',
@@ -7,10 +7,10 @@ import { DataList } from 'src/app/model/entities';
 export class JoinDataListPipe implements PipeTransform {
   constructor() {}
 
-  transform(items: DataList[]): string {
+  transform(items: DataListItem[]): string {
     return items.length > 0
       ? items
-          .map(x => x.label)
+          .map(x => x.name)
           .sort((a, b) => a.localeCompare(b))
           .join(', ')
       : null;

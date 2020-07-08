@@ -1,0 +1,41 @@
+.gm-button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  max-width: 15rem;
+  min-height: 2.5rem;
+  margin: 0.5rem;
+  border-radius: 0.5rem;
+  cursor: pointer;
+
+  &--ok {
+    background-color: $green;
+  }
+  &--ko {
+    background-color: $red;
+  }
+  &--warn {
+    background-color: orange;
+  }
+  &--back {
+    background-color: $light;
+  }
+  &--next {
+    background-color: $classic-blue;
+  }
+  &--edit {
+    background-color: $classic-blue;
+
+    &:hover {
+      background-color: $light;
+      border: solid 0.2rem $classic-blue;
+      color: $classic-blue;
+    }
+
+    &:active {
+      background-color: $classic-blue;
+      border: solid 0.2rem $light;
+      color: $light;
+    }
+  }
+}

@@ -5,12 +5,12 @@
     "description": "",
     "adjectives": {
       "genres": [
-        { "id": 1, "label": "action" },
-        { "id": 2, "label": "aventure" }
+        { "id": 1, "name": "action" },
+        { "id": 2, "name": "aventure" }
       ],
       "themes": [
-        { "id": 1, "label": "enfance" },
-        { "id": 2, "label": "horreur" }
+        { "id": 1, "name": "enfance" },
+        { "id": 2, "name": "horreur" }
       ]
     },
     "image": null
@@ -22,10 +22,6 @@
     }
   },
   "gameMaster": {
-    "group":[
-      {
-
-      }
-    ]
+    "group": [{}]
   }
 }
