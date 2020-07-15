@@ -34,13 +34,16 @@ export class GameListComponent extends withDestroy() implements OnInit, OnDestro
 
   private dummyCalculation(gamesNumber: number): number {
     const innerWidth = Math.max(document.documentElement.clientWidth || 0, window.innerWidth || 0);
-    const cardSize = 19 * parseFloat(getComputedStyle(document.documentElement).fontSize);
     const navigationSize = 7 * parseFloat(getComputedStyle(document.documentElement).fontSize);
-    const totalCardsSize = gamesNumber * cardSize;
     const disponibleWidth = innerWidth - navigationSize;
-    const remainder = disponibleWidth - Math.floor(totalCardsSize / disponibleWidth) * cardSize;
-    const total = Math.floor(remainder / cardSize);
-    return total > 1 ? total : 2;
+    const cardSize = 20 * parseFloat(getComputedStyle(document.documentElement).fontSize);
+
+    const cardNumberByScreenWidth = Math.floor(disponibleWidth / cardSize);
+    const nbLine = Math.ceil(gamesNumber / cardNumberByScreenWidth);
+    const nbCArdWithDUmmy = nbLine * cardNumberByScreenWidth;
+    const total = nbCArdWithDUmmy - gamesNumber;
+
+    return total;
   }
 
   private dummyCreation(gamesNumber: number) {
