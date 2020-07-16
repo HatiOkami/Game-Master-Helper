@@ -1,0 +1,8 @@
+<div class="card" [ngClass]="class" (mouseover)="class = 'card--detailed'" (mouseout)="class = 'card--presentation'" (click)="actionTrigger()">
+  <h5 class="card__title variant-font">{{ title }}</h5>
+  <div class="card__body">{{ body }}</div>
+  <div class="card__adds" *ngIf="adds">
+    <div class="card__adjective card__adjective--genres"><span>genres : </span>{{ adds.genres | joinDataList }}</div>
+    <div class="card__adjective card__adjective--themes"><span>thèmes : </span>{{ adds.themes | joinDataList }}</div>
+  </div>
+</div>
