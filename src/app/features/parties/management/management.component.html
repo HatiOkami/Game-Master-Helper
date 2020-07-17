@@ -1,0 +1,70 @@
+<div class="p-management">
+  <div class="informations">
+    <h3>Informations</h3>
+    <div class="informations__form">
+      <div>
+        <div class="gm-input">
+          <div class="gm-input__label">nom</div>
+          <input type="text" class="gm-input__input" />
+        </div>
+        <div class="gm-input">
+          <div class="gm-input__label">privé</div>
+          <input type="radio" />
+          <input type="radio" />
+        </div>
+      </div>
+      <div *ngIf="isCreationMode" class="gm-input">
+        <div class="gm-input__label">session 0 :</div>
+        <input type="date" />
+      </div>
+      <div *ngIf="!isCreationMode">
+        <div class="gm-input">
+          <div class="gm-input__label">dernière session :</div>
+          <input type="date" />
+        </div>
+        <div class="gm-input">
+          <div class="gm-input__label">prochaine session :</div>
+          <input type="date" />
+        </div>
+      </div>
+      <div class="gm-input">
+        <div class="gm-input__label">règles et prérequis :</div>
+        <textarea class="gm-input__text-area"></textarea>
+      </div>
+    </div>
+  </div>
+
+  <div class="aside player">
+    <h3>Joueurs</h3>
+    <div class="aside__container">
+      <div class="player__adder" (click)="openInvitational()">ajouter un joueur</div>
+      <ng-container *ngFor="let player of players">
+        <div class="player__item">
+          <div>{{ player }}</div>
+          <div>o</div>
+        </div>
+      </ng-container>
+    </div>
+  </div>
+
+  <div *ngIf="!isCreationMode" class="aside candidate">
+    <h3>Candidats</h3>
+    <div class="aside__container">
+      <div class="candidate__validator">valider la sélection</div>
+      <ng-container *ngFor="let candidate of candidates">
+        <div class="candidate__item">
+          <div>{{ candidate }}</div>
+        </div>
+      </ng-container>
+    </div>
+  </div>
+</div>
+
+<gm-modal id="invitational-modal">
+  <button class="gm-button gm-button--quit" (click)="closeInvitationalModal()">
+    annuler
+  </button>
+  <button class="gm-button gm-button--valid" (click)="closeInvitationalModal()">
+    valider
+  </button>
+</gm-modal>

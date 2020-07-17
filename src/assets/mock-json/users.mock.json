@@ -1,0 +1,68 @@
+[
+  {
+    "id": 1,
+    "firstName": "John",
+    "surname": "Doe",
+    "nickname":"Anonymous"
+  },
+  {
+    "id": 2,
+    "firstName": "Raphael",
+    "surname": "",
+    "nickname":"Red One"
+  },
+  {
+    "id": 3,
+    "firstName": "Leonardo",
+    "surname": "",
+    "nickname":"Blue One"
+  },
+  {
+    "id": 4,
+    "firstName": "Donatello",
+    "surname": "",
+    "nickname":"Purple One"
+  },
+  {
+    "id": 5,
+    "firstName": "Michaelangelo",
+    "surname": "",
+    "nickname":"Orange One"
+  },
+  {
+    "id": 6,
+    "firstName": "April",
+    "surname": "Oneil",
+    "nickname":"The Eye"
+  },
+  {
+    "id": 7,
+    "firstName": "Tsuki",
+    "surname": "Kami",
+    "nickname":"Moonlight"
+  },
+  {
+    "id": 8,
+    "firstName": "Ray",
+    "surname": "Bane",
+    "nickname":""
+  },
+  {
+    "id": 9,
+    "firstName": "Satan",
+    "surname": "",
+    "nickname":"Kuro Maou"
+  },
+  {
+    "id": 10,
+    "firstName": "",
+    "surname": "Clover",
+    "nickname":"Luck"
+  },
+  {
+    "id": 11,
+    "firstName": "Hati",
+    "surname": "Okami",
+    "nickname":"Lone Wolf"
+  }
+]

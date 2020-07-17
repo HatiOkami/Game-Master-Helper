@@ -1,0 +1,43 @@
+@import '../../../style/abstracts/variables';
+
+gm-modal {
+  display: none;
+  font-family: Roboto;
+
+  .gm-modal {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 1010;
+    overflow: auto;
+
+    &__body {
+      background: $light;
+      width: 70%;
+      min-height: 6rem;
+      max-height: 95vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    &__background {
+      position: fixed;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      background-color: $dark;
+      opacity: 0.9;
+      z-index: 1000;
+    }
+
+    &--open {
+      overflow: hidden;
+    }
+  }
+}
