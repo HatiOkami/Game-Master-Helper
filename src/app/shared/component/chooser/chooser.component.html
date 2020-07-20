@@ -1,4 +1,3 @@
-<!-- <div *ngIf="source?.length > 0" class="gm-list"> -->
 <div class="gm-list">
   <div *ngIf="editMode">
     <div *ngIf="isPanelOpened" class="gm-list__panel">
@@ -25,6 +24,7 @@
       </div>
     </ng-container>
   </div>
+  <ng-container *ngIf="labels.length === 0 && !isPanelOpened" (click)="togglePanel()">+</ng-container>
   <div *ngIf="!editMode" class="gm-list__reader">
     <div *ngFor="let label of labels" class="gm-list__reader-badge">
       {{ label }}

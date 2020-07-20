@@ -1,0 +1,5 @@
+export default {
+  CREATION: 'CREATION',
+  CONSULTATION: 'CONSULTATION',
+  EDITION: 'EDITION',
+};

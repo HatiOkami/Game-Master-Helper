@@ -13,6 +13,7 @@ import { Game } from '../../../model/entities';
 export class GameListComponent extends withDestroy() implements OnInit, OnDestroy {
   public dummy: number[];
   public games: Game[] = [];
+
   constructor(private router: Router) {
     super();
   }
@@ -54,5 +55,9 @@ export class GameListComponent extends withDestroy() implements OnInit, OnDestro
 
   private onWindowSize() {
     this.dummyCreation(this.games.length);
+  }
+
+  public goTo() {
+    this.router.navigate(['games/add']);
   }
 }

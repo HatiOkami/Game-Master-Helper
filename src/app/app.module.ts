@@ -4,6 +4,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HomeModule } from './features/home/home.module';
+import { ServiceModule } from './services/service.module';
 import { ENV_CONFIG } from './shared/environment';
 import { ConfigurationService } from './shared/services/env-configuration.service';
 import { SharedModule } from './shared/shared.module';
@@ -18,7 +19,7 @@ function getConfiguration(config: ConfigurationService) {
 
 @NgModule({
   declarations: [AppComponent],
-  imports: [AppRoutingModule, BrowserModule, HomeModule.forRoot(), SharedModule.forRoot()],
+  imports: [AppRoutingModule, BrowserModule, HomeModule.forRoot(), ServiceModule, SharedModule.forRoot()],
   providers: [
     {
       provide: APP_INITIALIZER,

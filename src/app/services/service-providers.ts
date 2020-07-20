@@ -1,1 +1,3 @@
-export const baseProviders = [];
+import { GameService } from './games';
+
+export const baseProviders = [GameService];
