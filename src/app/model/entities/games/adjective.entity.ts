@@ -1,6 +1,6 @@
 import { DataListItem } from '../data-list.entity';
 
-export class Adjective {
+export interface Adjective {
   genres: DataListItem[];
   themes: DataListItem[];
 }
