@@ -1,36 +1,36 @@
 <div class="game-edit">
-  <div class="informations">
+  <div class="informations" [formGroup]="gameForm">
     <h3>Informations générales</h3>
     <div class="informations__form">
       <div>
         <div class="gm-input">
           <div class="gm-input__label">titre</div>
-          <input type="text" class="gm-input__input" />
+          <input type="text" class="gm-input__input" formControlName="title" />
         </div>
         <div class="gm-input">
           <div class="gm-input__label">image</div>
-          <input type="file" class="gm-input__input" />
+          <input type="file" class="gm-input__input" formControlName="image" />
         </div>
       </div>
       <div>
         <div class="gm-input">
           <div class="gm-input__label">description</div>
-          <textarea class="gm-input__text-area"></textarea>
+          <textarea class="gm-input__text-area" formControlName="description"></textarea>
         </div>
       </div>
-      <div [formGroup]="genreForm">
-        <div class="gm-input" *ngIf="genreForm">
+      <div [formGroup]="gameForm.adjectiveForm">
+        <div class="gm-input">
           <div class="gm-input__label">genres</div>
-          <gm-chooser [dataSource]="genre" [editMode]="false" formControlName="genres"></gm-chooser>
+          <gm-chooser [dataSource]="genre" [editMode]="true" formControlName="genres"></gm-chooser>
         </div>
         <div class="gm-input">
           <div class="gm-input__label">thèmes</div>
-          <gm-chooser [dataSource]="genre" [editMode]="true" formControlName="genres"></gm-chooser>
+          <gm-chooser [dataSource]="theme" [editMode]="true" formControlName="themes"></gm-chooser>
         </div>
       </div>
     </div>
   </div>
-  <div class="tools">
+  <div class="tools" *ngIf="!isCreation">
     <div class="tools__container">
       <div class="tools__item variant-font">wiki</div>
       <div class="tools__item variant-font">campagnes & scénario</div>
@@ -39,7 +39,7 @@
       <div class="tools__item variant-font">soundboards</div>
     </div>
   </div>
-  <div class="summary">
+  <div class="summary" *ngIf="!isCreation">
     <div class="summary__game-master">
       <h3>maitre du jeu</h3>
     </div>
