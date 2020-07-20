@@ -1,70 +1,95 @@
 <div class="p-management">
-  <div class="informations">
-    <h3>Informations</h3>
-    <div class="informations__form">
-      <div>
-        <div class="gm-input">
-          <div class="gm-input__label">nom</div>
-          <input type="text" class="gm-input__input" />
+  <div class="p-management__main">
+    <div class="informations">
+      <h3>Informations</h3>
+      <div class="informations__form">
+        <div>
+          <div class="gm-input">
+            <div class="gm-input__label">nom</div>
+            <input type="text" class="gm-input__input" />
+          </div>
+          <div class="gm-input">
+            <div class="gm-input__label">privé</div>
+            <input type="radio" />
+            <input type="radio" />
+          </div>
         </div>
-        <div class="gm-input">
-          <div class="gm-input__label">privé</div>
-          <input type="radio" />
-          <input type="radio" />
-        </div>
-      </div>
-      <div *ngIf="isCreationMode" class="gm-input">
-        <div class="gm-input__label">session 0 :</div>
-        <input type="date" />
-      </div>
-      <div *ngIf="!isCreationMode">
-        <div class="gm-input">
-          <div class="gm-input__label">dernière session :</div>
+        <div *ngIf="isCreationMode" class="gm-input">
+          <div class="gm-input__label">session 0 :</div>
           <input type="date" />
         </div>
-        <div class="gm-input">
-          <div class="gm-input__label">prochaine session :</div>
-          <input type="date" />
+        <div *ngIf="!isCreationMode">
+          <div class="gm-input">
+            <div class="gm-input__label">dernière session :</div>
+            <input type="date" />
+          </div>
+          <div class="gm-input">
+            <div class="gm-input__label">prochaine session :</div>
+            <input type="date" />
+          </div>
         </div>
-      </div>
-      <div class="gm-input">
-        <div class="gm-input__label">règles et prérequis :</div>
-        <textarea class="gm-input__text-area"></textarea>
+        <div class="gm-input">
+          <div class="gm-input__label">règles et prérequis :</div>
+          <textarea class="gm-input__text-area"></textarea>
+        </div>
       </div>
     </div>
-  </div>
 
-  <div class="aside player">
-    <h3>Joueurs</h3>
-    <div class="aside__container">
+    <div class="aside player">
+      <h3>Joueurs</h3>
       <div class="player__adder" (click)="openInvitational()">ajouter un joueur</div>
-      <ng-container *ngFor="let player of players">
-        <div class="player__item">
-          <div>{{ player }}</div>
-          <div>o</div>
-        </div>
-      </ng-container>
+      <div class="aside__container">
+        <ng-container *ngFor="let player of players">
+          <div class="player__item">
+            <div>{{ player.nickname }}</div>
+            <div>o</div>
+          </div>
+        </ng-container>
+      </div>
+    </div>
+
+    <div *ngIf="!isCreationMode" class="aside candidate">
+      <h3>Candidats</h3>
+      <div class="aside__container">
+        <div class="candidate__validator">valider la sélection</div>
+        <ng-container *ngFor="let candidate of candidates">
+          <div class="candidate__item">
+            <div>{{ candidate }}</div>
+          </div>
+        </ng-container>
+      </div>
     </div>
   </div>
 
-  <div *ngIf="!isCreationMode" class="aside candidate">
-    <h3>Candidats</h3>
-    <div class="aside__container">
-      <div class="candidate__validator">valider la sélection</div>
-      <ng-container *ngFor="let candidate of candidates">
-        <div class="candidate__item">
-          <div>{{ candidate }}</div>
-        </div>
-      </ng-container>
-    </div>
+  <div class="p-management__deposit">
+    <h3>
+      documents annexes
+    </h3>
+    <gm-doc-deposit></gm-doc-deposit>
   </div>
 </div>
 
-<gm-modal id="invitational-modal">
-  <button class="gm-button gm-button--quit" (click)="closeInvitationalModal()">
-    annuler
-  </button>
-  <button class="gm-button gm-button--valid" (click)="closeInvitationalModal()">
-    valider
-  </button>
+<gm-modal class="modal" id="invitational-modal">
+  <h4>Mes contacts</h4>
+  <div class="modal__body">
+    <div>
+      <ng-container *ngFor="let contact of contactList">
+        <div
+          (click)="selectContact(contact)"
+          class="gm-contact"
+          [ngClass]="{ 'gm-contact--selected': isInSelectedContact(contact) }"
+        >
+          {{ contact.firstName }} {{ contact.surname }} aka {{ contact.nickname }}
+        </div>
+      </ng-container>
+    </div>
+  </div>
+  <div class="modal__footer">
+    <button class="gm-button gm-button--quit" (click)="closeInvitationalModal()">
+      annuler
+    </button>
+    <button class="gm-button gm-button--valid" (click)="addContactsToPlayers()">
+      valider
+    </button>
+  </div>
 </gm-modal>

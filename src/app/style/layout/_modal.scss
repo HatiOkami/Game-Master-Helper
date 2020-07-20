@@ -1,0 +1,17 @@
+.modal {
+  color: $clear-night;
+
+  h4 {
+    color: $night;
+    text-align: center;
+  }
+
+  &__body {
+    padding: 1rem;
+  }
+
+  &__footer {
+    display: flex;
+    justify-content: flex-end;
+  }
+}
