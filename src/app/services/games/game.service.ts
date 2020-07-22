@@ -1,6 +1,8 @@
 import { Injectable } from '@angular/core';
+import { of, Observable } from 'rxjs';
 import { HttpApiService } from 'src/app/shared/services/http-api.service';
 
+import Mock from '../../../assets/mock-json/games-edit.mock.json';
 import { Adjective, Game } from '../../model/entities';
 import { EntityService } from '../entity.service';
 
@@ -11,6 +13,11 @@ export class GameService extends EntityService<Game> {
   constructor(private httpApi: HttpApiService) {
     super();
     this.servicePrefix = 'games';
+  }
+
+  public getGame(gameId: number): Observable<Game> {
+    // return this.httpApi.get(this.servicePrefix, gameId);
+    return of(Mock);
   }
 
   protected _createInstance(data: Game): Game {

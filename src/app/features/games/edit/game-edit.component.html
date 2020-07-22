@@ -1,6 +1,16 @@
 <div class="game-edit">
-  <div class="informations" [formGroup]="gameForm">
-    <h3>Informations générales</h3>
+  <div class="section informations" [formGroup]="gameForm">
+    <div class="section__title">
+      <h3>Informations générales</h3>
+      <div class="section__edit-icon">
+        <ng-container *ngIf="isEdit">
+          <div (click)="validForm()">valider</div>
+        </ng-container>
+        <ng-container *ngIf="!isEdit">
+          <div (click)="editForm()">editer</div>
+        </ng-container>
+      </div>
+    </div>
     <div class="informations__form">
       <div>
         <div class="gm-input">
@@ -30,7 +40,7 @@
       </div>
     </div>
   </div>
-  <div class="tools" *ngIf="!isCreation">
+  <div class="tools" *ngIf="!isCreation && !isEdit">
     <div class="tools__container">
       <div class="tools__item variant-font">wiki</div>
       <div class="tools__item variant-font">campagnes & scénario</div>
@@ -40,10 +50,10 @@
     </div>
   </div>
   <div class="summary" *ngIf="!isCreation">
-    <div class="summary__game-master">
+    <div class="section summary__game-master">
       <h3>maitre du jeu</h3>
     </div>
-    <div class="summary__player">
+    <div class="section summary__player">
       <h3>joueur</h3>
     </div>
   </div>
