@@ -1,12 +1,12 @@
 import { PartyUser } from './party-user.entity';
 
 export interface Party {
-  currentCampaign: string;
+  currentCampaignId: string;
   description: string;
   id: number;
   isPrivate: boolean;
   name: string;
-  nextScenario: string;
+  nextScenarioId: string;
   nextSessionDate: Date;
   players: PartyUser[];
   prerequisite: string;

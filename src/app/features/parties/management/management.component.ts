@@ -1,21 +1,45 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
+import { takeUntil } from 'rxjs/operators';
 
 import UsersMock from '../../../../assets/mock-json/users.mock.json';
+import { withDestroy } from '../../..//shared/mixins/with-destroy.mixin';
 import { PartyUser, User } from '../../../model/entities';
+import { Party } from '../../../model/entities';
+import { PartyForm } from '../../../model/forms';
 import { ModalService } from '../../../shared/component/modal/modal.service';
+import FORM_MODE from '../../../shared/constants/form-mode';
 
 @Component({
   templateUrl: './management.component.html',
   styleUrls: ['./management.component.scss'],
 })
-export class PartiesManagementComponent implements OnInit {
+export class PartiesManagementComponent extends withDestroy() implements OnInit, OnDestroy {
+  get isCreation() {
+    return this.formMode === FORM_MODE.CREATION;
+  }
+
+  // get isPrivate() {
+  //   return this.formMode !== FORM_MODE.CREATION && this.party;
+  // }
+
   public candidates = [1, 2, 3];
   public contactList: User[] = [];
-  public isCreationMode = true;
+  public party: Party;
+  public partyForm: PartyForm;
   public players: PartyUser[] = [];
   public selectedContact: User[] = [];
 
-  constructor(private modalSrv: ModalService) {}
+  private formMode: string = FORM_MODE.CONSULTATION;
+
+  constructor(private modalSrv: ModalService, private route: ActivatedRoute) {
+    super();
+  }
+
+  public addContactsToPlayers() {
+    this.players = this.selectedContact as PartyUser[];
+    this.closeInvitationalModal();
+  }
 
   public closeInvitationalModal() {
     this.modalSrv.close('invitational-modal');
@@ -28,7 +52,9 @@ export class PartiesManagementComponent implements OnInit {
 
   ngOnInit() {
     this.contactList = UsersMock;
-    const a = 1;
+    this.route.data.pipe(takeUntil(this.destroyed$)).subscribe(routeDatas => {
+      this.formMode = routeDatas.formMode;
+    });
   }
 
   public openInvitational() {
@@ -44,8 +70,7 @@ export class PartiesManagementComponent implements OnInit {
     }
   }
 
-  public addContactsToPlayers() {
-    this.players = this.selectedContact as PartyUser[];
-    this.closeInvitationalModal();
+  private initForm() {
+    this.partyForm = new PartyForm(this.party);
   }
 }

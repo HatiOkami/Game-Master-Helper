@@ -14,11 +14,11 @@
             <input type="radio" />
           </div>
         </div>
-        <div *ngIf="isCreationMode" class="gm-input">
+        <div *ngIf="isCreation" class="gm-input">
           <div class="gm-input__label">session 0 :</div>
           <input type="date" />
         </div>
-        <div *ngIf="!isCreationMode">
+        <div *ngIf="!isCreation">
           <div class="gm-input">
             <div class="gm-input__label">dernière session :</div>
             <input type="date" />
@@ -35,7 +35,7 @@
       </div>
     </div>
 
-    <div class="aside player">
+    <div *ngIf="!isCreation" class="aside player">
       <h3>Joueurs</h3>
       <div class="player__adder" (click)="openInvitational()">ajouter un joueur</div>
       <div class="aside__container">
@@ -48,7 +48,7 @@
       </div>
     </div>
 
-    <div *ngIf="!isCreationMode" class="aside candidate">
+    <div *ngIf="!isCreation" class="aside candidate">
       <h3>Candidats</h3>
       <div class="aside__container">
         <div class="candidate__validator">valider la sélection</div>
@@ -61,7 +61,7 @@
     </div>
   </div>
 
-  <div class="p-management__deposit">
+  <div *ngIf="!isCreation" class="p-management__deposit">
     <h3>
       documents annexes
     </h3>
