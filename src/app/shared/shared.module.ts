@@ -5,7 +5,6 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
 
 import { BallotBoxComponent } from './component/ballot-box/ballot-box.component';
-import { CardComponent } from './component/card/card.component';
 import { ChooserComponent } from './component/chooser/chooser.component';
 import { DEFAULT_CONFIG, ENV_CONFIG } from './environment';
 import { HeaderComponent } from './layout/header/header.component';
@@ -17,7 +16,6 @@ import { HttpApiService } from './services/http-api.service';
   imports: [CommonModule, FormsModule, HttpClientModule, ReactiveFormsModule, RouterModule],
   declarations: [
     BallotBoxComponent,
-    CardComponent,
     ChooserComponent,
     HeaderComponent,
     NavigationComponent,
@@ -25,7 +23,6 @@ import { HttpApiService } from './services/http-api.service';
   ],
   exports: [
     BallotBoxComponent,
-    CardComponent,
     ChooserComponent,
     HeaderComponent,
     NavigationComponent,

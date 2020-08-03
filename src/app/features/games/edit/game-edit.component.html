@@ -1,36 +1,49 @@
 <div class="game-edit">
-  <div class="informations" [formGroup]="gameForm">
-    <h3>Informations générales</h3>
-    <div class="informations__form">
+  <div class="section informations" [formGroup]="gameForm">
+    <div class="section__title">
+      <h3>Informations générales</h3>
+      <div class="section__edit-icon">
+        <ng-container *ngIf="isEdit">
+          <div (click)="validForm()">valider</div>
+        </ng-container>
+        <ng-container *ngIf="!isEdit">
+          <div (click)="editForm()">editer</div>
+        </ng-container>
+      </div>
+    </div>
+    <div class="informations__form" [ngClass]="{ 'form--disabled': !isEdit }">
       <div>
         <div class="gm-input">
           <div class="gm-input__label">titre</div>
-          <input type="text" class="gm-input__input" formControlName="title" />
+          <input *ngIf="isEdit" type="text" class="gm-input__input gm-input__input--title" formControlName="title" />
+          <div *ngIf="!isEdit">{{ game.title }}</div>
         </div>
         <div class="gm-input">
           <div class="gm-input__label">image</div>
-          <input type="file" class="gm-input__input" formControlName="image" />
+          <input *ngIf="isEdit" type="file" class="gm-input__input" formControlName="image" />
+          <div *ngIf="!isEdit">{{ game.image }}</div>
         </div>
       </div>
       <div>
         <div class="gm-input">
           <div class="gm-input__label">description</div>
-          <textarea class="gm-input__text-area" formControlName="description"></textarea>
+          <textarea *ngIf="isEdit" class="gm-input__text-area" formControlName="description"></textarea>
+          <div *ngIf="!isEdit">{{ game.description }}</div>
         </div>
       </div>
       <div [formGroup]="gameForm.adjectiveForm">
         <div class="gm-input">
           <div class="gm-input__label">genres</div>
-          <gm-chooser [dataSource]="genre" [editMode]="true" formControlName="genres"></gm-chooser>
+          <gm-chooser [dataSource]="genre" [editMode]="isEdit" formControlName="genres"></gm-chooser>
         </div>
         <div class="gm-input">
           <div class="gm-input__label">thèmes</div>
-          <gm-chooser [dataSource]="theme" [editMode]="true" formControlName="themes"></gm-chooser>
+          <gm-chooser [dataSource]="theme" [editMode]="isEdit" formControlName="themes"></gm-chooser>
         </div>
       </div>
     </div>
   </div>
-  <div class="tools" *ngIf="!isCreation">
+  <div class="tools" *ngIf="!isCreation && !isEdit">
     <div class="tools__container">
       <div class="tools__item variant-font">wiki</div>
       <div class="tools__item variant-font">campagnes & scénario</div>
@@ -40,10 +53,10 @@
     </div>
   </div>
   <div class="summary" *ngIf="!isCreation">
-    <div class="summary__game-master">
+    <div class="section summary__game-master">
       <h3>maitre du jeu</h3>
     </div>
-    <div class="summary__player">
+    <div class="section summary__player">
       <h3>joueur</h3>
     </div>
   </div>

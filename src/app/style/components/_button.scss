@@ -5,6 +5,8 @@
   max-width: 15rem;
   min-height: 2.5rem;
   margin: 0.5rem;
+  padding: 1rem;
+  border: solid 0.2rem transparent;
   border-radius: 0.5rem;
   cursor: pointer;
 
@@ -21,19 +23,19 @@
     background-color: $light;
   }
   &--next {
-    background-color: $classic-blue;
+    background-color: $blue;
   }
   &--edit {
-    background-color: $classic-blue;
+    background-color: $blue;
 
     &:hover {
       background-color: $light;
-      border: solid 0.2rem $classic-blue;
-      color: $classic-blue;
+      border: solid 0.2rem $blue;
+      color: $blue;
     }
 
     &:active {
-      background-color: $classic-blue;
+      background-color: $blue;
       border: solid 0.2rem $light;
       color: $light;
     }
