@@ -2,20 +2,49 @@
   width: 100%;
   margin: 1rem;
 
-  &__label{
+  &__label {
     font-family: Spartan-Light;
     font-style: italic;
     color: $grey-blue;
+    margin: 0 0.5rem 0.5rem 0;
   }
 
   &__input,
   &__text-area {
     border: none;
     outline: none;
+    border-radius: 0.2rem;
+    padding: 0.2rem 0.5rem;
+    width: 100%;
+    min-height: 1.7rem;
     background: $light;
+    color: $dark;
   }
 
   &__text-area {
     resize: none;
+    line-height: 1.2em;
+    height: 4.5em;
+  }
+}
+
+.form--disabled {
+  .gm-input {
+    &__input,
+    &__text-area {
+      font-size: 1.2em;
+      background: transparent;
+      color: $light;
+    }
+
+    &__input {
+      &--title {
+        text-transform: uppercase;
+      }
+    }
+
+    &__text-area {
+      height: auto;
+    }
   }
 }

@@ -42,23 +42,58 @@ export class HttpApiService {
   }
 
   private _apiUri: string;
+  private _apiVersion: string;
   private _eventEmitter: EventEmitter<HttpApiHelperEvent> = new EventEmitter();
 
   constructor(private _http: HttpClient, @Inject(ENV_CONFIG) config: EnvConfig) {
     this._apiUri = config.apiUrl;
+    this._apiVersion = config.apiVersion;
   }
 
-  protected delete(url: string, params?: any, responseTypeExpected?: string): Observable<any> {
+  public delete(url: string, params?: any, responseTypeExpected?: string): Observable<any> {
+    return this._delete(url, params, responseTypeExpected);
+  }
+  public get(url: string, params?: any, responseTypeExpected?: string): Observable<any> {
+    if (params) {
+      Object.keys(params).forEach(param => params[param] == null ? delete params[param] : null);
+    }
+
+    return this._get(url, params, responseTypeExpected);
+  }
+  public patch(url: string, body: any, params?: any, responseTypeExpected?: string): Observable<any> {
+    return this._patch(url, body, params, responseTypeExpected);
+  }
+  public post(url: string, body: any, params?: any, responseTypeExpected?: string): Observable<any> {
+    return this._post(url, body, params, responseTypeExpected);
+  }
+  public put(url: string, body: any, params?: any, responseTypeExpected?: string): Observable<any> {
+    return this._put(url, body, params, responseTypeExpected);
+  }
+
+  protected _delete(url: string, params?: any, responseTypeExpected?: string): Observable<any> {
     const httpApiParams = this._manageHttpRequest(url, null, params, responseTypeExpected);
     return this._http.delete(httpApiParams.url, httpApiParams.options);
   }
 
-  // test avec <t>
-  protected get(url: string, params?: any, responseTypeExpected?: string): Observable<any> {
+  protected _get(url: string, params?: any, responseTypeExpected?: string): Observable<any> {
     const httpApiParams = this._manageHttpRequest(url, null, params, responseTypeExpected);
     return this._http.get(httpApiParams.url, httpApiParams.options);
   }
-  // file upload ?
+
+  protected _patch(url: string, body: any, params?: any, responseTypeExpected?: string): Observable<any> {
+    const httpApiParams = this._manageHttpRequest(url, body, params, responseTypeExpected);
+    return this._http.patch(httpApiParams.url, httpApiParams.body, httpApiParams.options);
+  }
+
+  protected _post(url: string, body: any, params?: any, responseTypeExpected?: string): Observable<any> {
+    const httpApiParams = this._manageHttpRequest(url, body, params, responseTypeExpected);
+    return this._http.post(httpApiParams.url, httpApiParams.body, httpApiParams.options);
+  }
+
+  protected _put(url: string, body: any, params?: any, responseTypeExpected?: string): Observable<any> {
+    const httpApiParams = this._manageHttpRequest(url, body, params, responseTypeExpected);
+    return this._http.put(httpApiParams.url, httpApiParams.body, httpApiParams.options);
+  }
 
   protected getApiHeaders(): HttpHeaders {
     const headers = {
@@ -67,21 +102,6 @@ export class HttpApiService {
     };
 
     return new HttpHeaders(headers);
-  }
-
-  protected patch(url: string, body: any, params?: any, responseTypeExpected?: string): Observable<any> {
-    const httpApiParams = this._manageHttpRequest(url, body, params, responseTypeExpected);
-    return this._http.patch(httpApiParams.url, httpApiParams.body, httpApiParams.options);
-  }
-
-  protected post(url: string, body: any, params?: any, responseTypeExpected?: string): Observable<any> {
-    const httpApiParams = this._manageHttpRequest(url, body, params, responseTypeExpected);
-    return this._http.post(httpApiParams.url, httpApiParams.body, httpApiParams.options);
-  }
-
-  protected put(url: string, body: any, params?: any, responseTypeExpected?: string): Observable<any> {
-    const httpApiParams = this._manageHttpRequest(url, body, params, responseTypeExpected);
-    return this._http.put(httpApiParams.url, httpApiParams.body, httpApiParams.options);
   }
 
   private _manageHttpRequest(url: string, body: any, params?: any, responseTypeExpected?: string): HttpApiHelperParams {
@@ -111,6 +131,6 @@ export class HttpApiService {
   }
 
   private getHttpUri(url?: string): string {
-    return this._apiUri + 'api/' + url;
+    return `${this._apiUri}/api/v${this._apiVersion}/${url}`;
   }
 }

@@ -18,6 +18,10 @@ export class GameListComponent extends withDestroy() implements OnInit, OnDestro
     super();
   }
 
+  public createGame() {
+    this.router.navigate(['games/add']);
+  }
+
   ngOnDestroy() {
     window.removeEventListener('resize', this.onWindowSize.bind(this), true);
     super.ngOnDestroy();
@@ -55,9 +59,5 @@ export class GameListComponent extends withDestroy() implements OnInit, OnDestro
 
   private onWindowSize() {
     this.dummyCreation(this.games.length);
-  }
-
-  public goTo() {
-    this.router.navigate(['games/add']);
   }
 }

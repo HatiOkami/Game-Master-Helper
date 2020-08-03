@@ -16,7 +16,6 @@
     margin: 0;
     text-transform: uppercase;
     font-size: 1.4em;
-    border-bottom: solid 0.1rem $light;
     padding: 0.5rem;
     text-align: center;
     display: flex;
@@ -39,6 +38,7 @@
   &__adds {
     padding: 0.5rem;
     height: 3.5rem;
+    border-top: solid 0.1rem $light;
 
     & div:first-child {
       margin-bottom: 0.5rem;

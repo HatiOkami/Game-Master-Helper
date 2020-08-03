@@ -1,0 +1,17 @@
+.section {
+  display: flex;
+  flex-direction: column;
+  border-radius: 0.5rem;
+  background-color: $clear-night;
+
+  &__title {
+    position: relative;
+  }
+
+  &__edit-icon {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    cursor: pointer;
+  }
+}

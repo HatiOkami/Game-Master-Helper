@@ -11,11 +11,6 @@
   }
 
   .informations {
-    display: flex;
-    flex-direction: column;
-    border-radius: 0.5rem;
-    background-color: $clear-night;
-
     &__form {
       display: flex;
       flex-direction: column;
@@ -71,8 +66,6 @@
 
     > div {
       width: calc(50% - 0.5rem);
-      border-radius: 0.5rem;
-      background-color: $clear-night;
     }
   }
 }
