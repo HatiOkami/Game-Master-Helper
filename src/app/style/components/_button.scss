@@ -23,19 +23,19 @@
     background-color: $light;
   }
   &--next {
-    background-color: $classic-blue;
+    background-color: $blue;
   }
   &--edit {
-    background-color: $classic-blue;
+    background-color: $blue;
 
     &:hover {
       background-color: $light;
-      border: solid 0.2rem $classic-blue;
-      color: $classic-blue;
+      border: solid 0.2rem $blue;
+      color: $blue;
     }
 
     &:active {
-      background-color: $classic-blue;
+      background-color: $blue;
       border: solid 0.2rem $light;
       color: $light;
     }

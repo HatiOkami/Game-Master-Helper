@@ -9,7 +9,6 @@ import { withDestroy } from '../../mixins/with-destroy.mixin';
 @Component({
   selector: 'gm-chooser',
   templateUrl: './chooser.component.html',
-  styleUrls: ['./chooser.component.scss'],
   providers: [
     {
       provide: NG_VALUE_ACCESSOR,
@@ -37,6 +36,8 @@ export class ChooserComponent extends withDestroy() implements ControlValueAcces
   @Input() dataSource: DataListItem[];
   @Input() editMode = false;
   public isPanelOpened = false;
+  @ViewChild('panel')
+  panelRef: ElementRef;
   @ViewChild('values')
   valuesRef: ElementRef;
 
@@ -68,9 +69,12 @@ export class ChooserComponent extends withDestroy() implements ControlValueAcces
   public clickOnDocument(targetElement: ElementRef) {
     if (this.editMode) {
       const clickOnValues = this.valuesRef.nativeElement.contains(targetElement);
+      const clickOnPanel = this.panelRef.nativeElement.contains(targetElement);
 
       if (clickOnValues) {
-        this.togglePanel();
+        this.openPanel();
+      } else if (!clickOnPanel) {
+        this.closePanel();
       }
     }
   }

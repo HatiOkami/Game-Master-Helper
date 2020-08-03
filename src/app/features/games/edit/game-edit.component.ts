@@ -53,6 +53,13 @@ export class GameEditComponent extends withDestroy() implements OnInit, OnDestro
 
   public validForm() {
     this.editing = false;
+    this.gameService
+      .saveGame(this.game)
+      .pipe(takeUntil(this.destroyed$))
+      .subscribe(id => {
+        this.editing = false;
+        this.router.navigate([id.toString()], { relativeTo: this.route });
+      });
   }
 
   private getInstance(id: number): Game {

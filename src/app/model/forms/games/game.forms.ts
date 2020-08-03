@@ -1,4 +1,4 @@
-import { FormControl, FormGroup } from '@angular/forms';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 
 import { Game } from '../../entities';
 
@@ -9,7 +9,7 @@ export class GameForm extends FormGroup {
 
   constructor(object: Game) {
     const group: any = {
-      title: new FormControl(object.title),
+      title: new FormControl(object.title, Validators.required),
       description: new FormControl(object.description),
       image: new FormControl(object.image),
       adjectiveForm: new AdjectiveForm(object.adjectives),

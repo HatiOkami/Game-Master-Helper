@@ -20,6 +20,14 @@ export class GameService extends EntityService<Game> {
     return of(Mock);
   }
 
+  public saveGame(game: Game): Observable<number> {
+    if (game.id !== 0) {
+      return this.httpApi.put(`${this.servicePrefix}/${game.id}`, game);
+    } else {
+      return this.httpApi.post(this.servicePrefix, game);
+    }
+  }
+
   protected _createInstance(data: Game): Game {
     return Object.assign(this._getDefaultData(), {
       id: data.id,
