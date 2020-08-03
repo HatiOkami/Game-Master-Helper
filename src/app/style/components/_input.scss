@@ -3,7 +3,7 @@
   margin: 1rem;
 
   &__label {
-    font-family: Spartan-Light;
+    font-weight: lighter;
     font-style: italic;
     color: $grey-blue;
     margin: 0 0.5rem 0.5rem 0;
@@ -25,6 +25,14 @@
     resize: none;
     line-height: 1.2em;
     height: 4.5em;
+  }
+
+  &__input {
+    &--radio {
+      span {
+        margin-right: 1rem;
+      }
+    }
   }
 }
 

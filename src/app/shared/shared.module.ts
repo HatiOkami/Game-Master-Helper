@@ -3,6 +3,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { ModuleWithProviders, NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
+import { NgxDatatableModule } from '@swimlane/ngx-datatable';
 
 import { BallotBoxComponent } from './component/ballot-box/ballot-box.component';
 import { ChooserComponent } from './component/chooser/chooser.component';
@@ -15,7 +16,15 @@ import { JoinDataListPipe } from './pipes/join-data-list.pipe';
 import { HttpApiService } from './services/http-api.service';
 
 @NgModule({
-  imports: [CommonModule, FormsModule, HttpClientModule, ModalModule, ReactiveFormsModule, RouterModule],
+  imports: [
+    CommonModule,
+    FormsModule,
+    HttpClientModule,
+    ModalModule,
+    NgxDatatableModule,
+    ReactiveFormsModule,
+    RouterModule,
+  ],
   declarations: [
     BallotBoxComponent,
     ChooserComponent,
@@ -31,6 +40,7 @@ import { HttpApiService } from './services/http-api.service';
     HeaderComponent,
     ModalModule,
     NavigationComponent,
+    NgxDatatableModule,
     JoinDataListPipe,
     CommonModule,
     FormsModule,

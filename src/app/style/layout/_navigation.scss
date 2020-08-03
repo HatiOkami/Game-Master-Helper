@@ -5,6 +5,7 @@
   background-color: $dark;
   color: $light;
   top: 0;
+  z-index: 100;
 
   &--opened {
     width: 20%;

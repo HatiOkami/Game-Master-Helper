@@ -9,6 +9,12 @@
   border: solid 0.2rem transparent;
   border-radius: 0.5rem;
   cursor: pointer;
+  font-family: Spartan-Bold;
+  text-transform: uppercase;
+
+  &--ok, &--ko, &--warn, &--next{
+    color: $light;
+  }
 
   &--ok {
     background-color: $green;
@@ -17,7 +23,7 @@
     background-color: $red;
   }
   &--warn {
-    background-color: orange;
+    background-color: $orange;
   }
   &--back {
     background-color: $light;

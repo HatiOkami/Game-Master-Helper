@@ -1,0 +1,14 @@
+.datatable-header {
+  border-bottom: solid 0.1rem $grey-blue;
+}
+
+.datatable-body-row.active {
+  background-color: $green;
+  color: $dark;
+  font-weight: bold;
+}
+
+.datatable-body-cell,
+.datatable-header {
+  padding-left: 1rem;
+}

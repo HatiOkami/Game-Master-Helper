@@ -1,6 +1,6 @@
 <div class="p-management">
   <div class="p-management__main">
-    <div class="informations">
+    <div class="section informations">
       <h3>Informations</h3>
       <div class="informations__form">
         <div>
@@ -9,14 +9,18 @@
             <input type="text" class="gm-input__input" />
           </div>
           <div class="gm-input">
-            <div class="gm-input__label">privé</div>
-            <input type="radio" />
-            <input type="radio" />
+            <div class="gm-input__label">visibilité</div>
+            <div class="gm-input__input--radio">
+              <span><input type="radio" />publique</span>
+              <span><input type="radio" />privé</span>
+            </div>
           </div>
         </div>
-        <div *ngIf="isCreation" class="gm-input">
-          <div class="gm-input__label">session 0 :</div>
-          <input type="date" />
+        <div *ngIf="isCreation">
+          <div class="gm-input">
+            <div class="gm-input__label">session 0 :</div>
+            <input type="date" />
+          </div>
         </div>
         <div *ngIf="!isCreation">
           <div class="gm-input">
@@ -28,16 +32,18 @@
             <input type="date" />
           </div>
         </div>
-        <div class="gm-input">
-          <div class="gm-input__label">règles et prérequis :</div>
-          <textarea class="gm-input__text-area"></textarea>
+        <div>
+          <div class="gm-input">
+            <div class="gm-input__label">règles et prérequis :</div>
+            <textarea class="gm-input__text-area"></textarea>
+          </div>
         </div>
       </div>
     </div>
 
     <div *ngIf="!isCreation" class="aside player">
       <h3>Joueurs</h3>
-      <div class="player__adder" (click)="openInvitational()">ajouter un joueur</div>
+      <div class="player__adder" (click)="openInvitational()">sélection des joueurs</div>
       <div class="aside__container">
         <ng-container *ngFor="let player of players">
           <div class="player__item">
@@ -48,12 +54,12 @@
       </div>
     </div>
 
-    <div *ngIf="!isCreation" class="aside candidate">
+    <div *ngIf="!isCreation && !isPrivate" class="aside player">
       <h3>Candidats</h3>
+      <div class="player__adder">valider la sélection</div>
       <div class="aside__container">
-        <div class="candidate__validator">valider la sélection</div>
         <ng-container *ngFor="let candidate of candidates">
-          <div class="candidate__item">
+          <div class="player__item">
             <div>{{ candidate }}</div>
           </div>
         </ng-container>
@@ -72,23 +78,29 @@
 <gm-modal class="modal" id="invitational-modal">
   <h4>Mes contacts</h4>
   <div class="modal__body">
-    <div>
-      <ng-container *ngFor="let contact of contactList">
-        <div
-          (click)="selectContact(contact)"
-          class="gm-contact"
-          [ngClass]="{ 'gm-contact--selected': isInSelectedContact(contact) }"
-        >
-          {{ contact.firstName }} {{ contact.surname }} aka {{ contact.nickname }}
-        </div>
-      </ng-container>
-    </div>
+    <ngx-datatable
+      class="gm-datatable"
+      [rowHeight]="'auto'"
+      [footerHeight]="'auto'"
+      [rows]="contactList"
+      [columnMode]="'flex'"
+      [selected]="selectedContact"
+      [selectionType]="selectionType.multiClick"
+      [rowClass]="getRowClass"
+      [count]="contactList.length"
+      (select)="selectContact($event)"
+      #ngxDatatable
+    >
+      <ngx-datatable-column name="Nom" prop="surname" [flexGrow]="1"></ngx-datatable-column>
+      <ngx-datatable-column name="Prénom" prop="firstName" [flexGrow]="1"></ngx-datatable-column>
+      <ngx-datatable-column name="Pseudo" prop="nickname" [flexGrow]="1"></ngx-datatable-column>
+    </ngx-datatable>
   </div>
   <div class="modal__footer">
-    <button class="gm-button gm-button--quit" (click)="closeInvitationalModal()">
+    <button class="gm-button gm-button--warn" (click)="cancelInvitationalModal()">
       annuler
     </button>
-    <button class="gm-button gm-button--valid" (click)="addContactsToPlayers()">
+    <button class="gm-button gm-button--ok" (click)="addContactsToPlayers()">
       valider
     </button>
   </div>

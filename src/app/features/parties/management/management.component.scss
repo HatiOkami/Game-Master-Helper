@@ -33,6 +33,16 @@
     flex-direction: column;
     border-radius: 0.5rem;
     background-color: $clear-night;
+
+    &__form {
+      display: flex;
+      flex-direction: column;
+      width: 100%;
+
+      > div {
+        display: flex;
+      }
+    }
   }
 
   .aside {
