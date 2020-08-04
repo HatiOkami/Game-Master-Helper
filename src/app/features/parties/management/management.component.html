@@ -1,47 +1,57 @@
 <div class="p-management">
   <div class="p-management__main">
-    <div class="section informations">
+    <div class="section informations" [formGroup]="partyForm">
       <h3>Informations</h3>
       <div class="informations__form">
         <div>
           <div class="gm-input">
             <div class="gm-input__label">nom</div>
-            <input type="text" class="gm-input__input" />
+            <input type="text" class="gm-input__input" formControlName="name" />
           </div>
           <div class="gm-input">
             <div class="gm-input__label">visibilité</div>
             <div class="gm-input__input--radio">
-              <span><input type="radio" />publique</span>
-              <span><input type="radio" />privé</span>
+              <span><input type="radio" formControlName="isPrivate" value="false" />publique</span>
+              <span><input type="radio" formControlName="isPrivate" value="true" />privé</span>
             </div>
           </div>
         </div>
         <div *ngIf="isCreation">
           <div class="gm-input">
             <div class="gm-input__label">session 0 :</div>
-            <input type="date" />
+            <input type="date" formControlName="nextSessionDate" />
           </div>
         </div>
         <div *ngIf="!isCreation">
           <div class="gm-input">
             <div class="gm-input__label">dernière session :</div>
-            <input type="date" />
+            <input type="date" formControlName="previousSessionDate" />
           </div>
           <div class="gm-input">
             <div class="gm-input__label">prochaine session :</div>
-            <input type="date" />
+            <input type="date" formControlName="nextSessionDate" />
+          </div>
+        </div>
+        <div *ngIf="!isCreation">
+          <div class="gm-input">
+            <div class="gm-input__label">campagne :</div>
+            <input type="texte" formControlName="currentCampaignId" />
+          </div>
+          <div class="gm-input">
+            <div class="gm-input__label">prochain scénario :</div>
+            <input type="texte" formControlName="nextScenarioId" />
           </div>
         </div>
         <div>
           <div class="gm-input">
             <div class="gm-input__label">règles et prérequis :</div>
-            <textarea class="gm-input__text-area"></textarea>
+            <textarea class="gm-input__text-area" formControlName="prerequisite"></textarea>
           </div>
         </div>
       </div>
     </div>
 
-    <div *ngIf="!isCreation" class="aside player">
+    <div *ngIf="!isCreation" class="aside player" [formGroup]="partyForm">
       <h3>Joueurs</h3>
       <div class="player__adder" (click)="openInvitational()">sélection des joueurs</div>
       <div class="aside__container">
@@ -54,7 +64,7 @@
       </div>
     </div>
 
-    <div *ngIf="!isCreation && !isPrivate" class="aside player">
+    <div *ngIf="party && !party.isPrivate" class="aside player">
       <h3>Candidats</h3>
       <div class="player__adder">valider la sélection</div>
       <div class="aside__container">

@@ -46,7 +46,7 @@ export class GameEditComponent extends withDestroy() implements OnInit, OnDestro
   ngOnInit() {
     this.route.data.pipe(takeUntil(this.destroyed$)).subscribe(routeDatas => {
       this.formMode = routeDatas.formMode;
-      this.game = this.getInstance(routeDatas.id);
+      this.getInstance(+this.route.snapshot.params.id);
       this.initForm();
     });
   }
@@ -62,16 +62,16 @@ export class GameEditComponent extends withDestroy() implements OnInit, OnDestro
       });
   }
 
-  private getInstance(id: number): Game {
+  private getInstance(id: number) {
     if (id) {
       this.gameService
         .getGame(id)
         .pipe(takeUntil(this.destroyed$))
         .subscribe(data => {
-          return this.gameService.createInstance(data);
+          this.game = this.gameService.createInstance(data);
         });
     } else {
-      return this.gameService.createInstance();
+      this.game = this.gameService.createInstance();
     }
   }
 

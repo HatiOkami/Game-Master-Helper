@@ -1,0 +1,28 @@
+<div class="gm-nav" [ngClass]="{ 'gm-nav--opened': isOpen }">
+  <div (click)="switchNav()" class="gm-nav__switch">
+    <div *ngIf="!isOpen">-</div>
+    <div *ngIf="isOpen">X</div>
+  </div>
+  <div class="gm-nav__items">
+    <div (click)="goTo('home')" class="gm-nav__item">
+      <div class=""></div>
+      <div *ngIf="isOpen" class="">dashboard</div>
+    </div>
+    <div (click)="goTo('games/list')" class="gm-nav__item">
+      <div class=""></div>
+      <div *ngIf="isOpen" class="">Games</div>
+    </div>
+    <div class="gm-nav__item">
+      <div class=""></div>
+      <div *ngIf="isOpen" class="">Calendar</div>
+    </div>
+    <div class="gm-nav__item">
+      <div class=""></div>
+      <div *ngIf="isOpen" class="">Friends</div>
+    </div>
+    <div class="gm-nav__item">
+      <div class=""></div>
+      <div *ngIf="isOpen" class="">Toolbox</div>
+    </div>
+  </div>
+</div>

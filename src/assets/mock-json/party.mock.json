@@ -1,0 +1,12 @@
+{
+  "currentCampaignId": "1",
+  "description": "description de la table",
+  "id": 1,
+  "isPrivate": true,
+  "name": "table de hati",
+  "nextScenarioId": "0",
+  "nextSessionDate": null,
+  "players": [],
+  "prerequisite": "prérequis 1",
+  "previousSessionDate": null
+}

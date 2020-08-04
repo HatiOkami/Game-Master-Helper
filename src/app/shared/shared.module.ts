@@ -5,14 +5,15 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
 import { NgxDatatableModule } from '@swimlane/ngx-datatable';
 
-import { BallotBoxComponent } from './component/ballot-box/ballot-box.component';
-import { ChooserComponent } from './component/chooser/chooser.component';
-import { DocDepositComponent } from './component/doc-deposit/doc-deposit.component';
-import { ModalModule } from './component/modal/modal.module';
+import { BallotBoxComponent } from './components/ballot-box/ballot-box.component';
+import { ChooserComponent } from './components/chooser/chooser.component';
+import { DocDepositComponent } from './components/doc-deposit/doc-deposit.component';
+import { ModalModule } from './components/modal/modal.module';
 import { DEFAULT_CONFIG, ENV_CONFIG } from './environment';
-import { HeaderComponent } from './layout/header/header.component';
-import { NavigationComponent } from './layout/navigation/navigation.component';
+import { HeaderComponent } from './layouts/header/header.component';
+import { NavigationComponent } from './layouts/navigation/navigation.component';
 import { JoinDataListPipe } from './pipes/join-data-list.pipe';
+import { GameResolver } from './resolvers/game.resolver';
 import { HttpApiService } from './services/http-api.service';
 
 @NgModule({
@@ -46,6 +47,7 @@ import { HttpApiService } from './services/http-api.service';
     FormsModule,
     ReactiveFormsModule,
   ],
+  providers: [GameResolver],
 })
 export class SharedModule {
   public static forRoot(): ModuleWithProviders<SharedModule> {

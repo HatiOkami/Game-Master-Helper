@@ -8,7 +8,8 @@ import { withDestroy } from '../../..//shared/mixins/with-destroy.mixin';
 import { PartyUser, User } from '../../../model/entities';
 import { Party } from '../../../model/entities';
 import { PartyForm } from '../../../model/forms';
-import { ModalService } from '../../../shared/component/modal/modal.service';
+import { PartyService } from '../../../services/parties';
+import { ModalService } from '../../../shared/components/modal/modal.service';
 import FORM_MODE from '../../../shared/constants/form-mode';
 
 @Component({
@@ -18,10 +19,6 @@ import FORM_MODE from '../../../shared/constants/form-mode';
 export class PartiesManagementComponent extends withDestroy() implements OnInit, OnDestroy, AfterViewInit {
   get isCreation() {
     return this.formMode === FORM_MODE.CREATION;
-  }
-
-  get isPrivate() {
-    return this.party?.isPrivate;
   }
 
   public candidates = [1, 2, 3];
@@ -35,7 +32,7 @@ export class PartiesManagementComponent extends withDestroy() implements OnInit,
 
   private formMode: string = FORM_MODE.CONSULTATION;
 
-  constructor(private modalSrv: ModalService, private route: ActivatedRoute) {
+  constructor(private partyService: PartyService, private modalService: ModalService, private route: ActivatedRoute) {
     super();
   }
 
@@ -63,11 +60,13 @@ export class PartiesManagementComponent extends withDestroy() implements OnInit,
     this.contactList = UsersMock;
     this.route.data.pipe(takeUntil(this.destroyed$)).subscribe(routeDatas => {
       this.formMode = routeDatas.formMode;
+      this.getInstance(+this.route.snapshot.params.id);
+      this.initForm();
     });
   }
 
   public openInvitational() {
-    this.modalSrv.open('invitational-modal');
+    this.modalService.open('invitational-modal');
   }
 
   public selectContact(dataTableList: any) {
@@ -76,7 +75,20 @@ export class PartiesManagementComponent extends withDestroy() implements OnInit,
   }
 
   private closeInvitationalModal() {
-    this.modalSrv.close('invitational-modal');
+    this.modalService.close('invitational-modal');
+  }
+
+  private getInstance(id: number) {
+    if (id) {
+      this.partyService
+        .getParty(id)
+        .pipe(takeUntil(this.destroyed$))
+        .subscribe(data => {
+          this.party = this.partyService.createInstance(data);
+        });
+    } else {
+      this.party = this.partyService.createInstance();
+    }
   }
 
   private initForm() {

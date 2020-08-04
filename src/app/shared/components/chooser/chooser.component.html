@@ -1,0 +1,34 @@
+<div class="gm-chooser">
+  <div #panel *ngIf="editMode">
+    <div *ngIf="isPanelOpened" class="gm-chooser__panel">
+      <div class="gm-chooser__actions">
+        <div class="gm-chooser__clear" (click)="clear()">éffacer la séléction</div>
+      </div>
+      <div class="gm-chooser__select-area">
+        <div
+          *ngFor="let item of sourceItems"
+          (click)="clickItem(item)"
+          class="gm-chooser__item"
+          [ngClass]="{ 'gm-chooser__item--selected': isInCurrentValues(item) }"
+        >
+          <span>{{ getItemLabel(item) }}</span>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div #values *ngIf="editMode" class="gm-chooser__container">
+    <ng-container *ngIf="!isPanelOpened">
+      <div *ngFor="let label of labels" class="gm-chooser__badge">
+        {{ label }}
+      </div>
+      <div *ngIf="labels.length === 0" class="gm-chooser__badge gm-chooser__badge--adder">
+        +
+      </div>
+    </ng-container>
+  </div>
+  <div *ngIf="!editMode" class="gm-chooser__reader">
+    <div *ngFor="let label of labels" class="gm-chooser__reader-badge">
+      {{ label }}
+    </div>
+  </div>
+</div>
