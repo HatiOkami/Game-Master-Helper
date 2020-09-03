@@ -1,6 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
-import { of } from 'rxjs/internal/observable/of';
+import { of, Observable } from 'rxjs';
 
 import Mock from '../../../assets/mock-json/party.mock.json';
 import { Party } from '../../model/entities';
