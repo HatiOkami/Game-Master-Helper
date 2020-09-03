@@ -4,7 +4,9 @@
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
+    "serve-api": "json-server --watch mock/data.json --port 8081",
     "build": "ng build --prod",
+    "build-mock-database": "node mock/generate.js > mock/data.json",
     "test": "jest",
     "lint": "ng lint"
   },
