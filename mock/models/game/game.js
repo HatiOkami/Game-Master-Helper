@@ -6,12 +6,9 @@ module.exports = {
   adjectives: {
     genres: [
       { id: 1, name: 'action' },
-      { id: 2, name: 'aventure' },
     ],
     themes: [
       { id: 1, name: 'enfance' },
-      { id: 2, name: 'horreur' },
-      { id: 3, name: 'fantastique' },
     ],
   },
   image: null,

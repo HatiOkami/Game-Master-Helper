@@ -1,33 +1,40 @@
 const DICTIONARY = {
-  games: []
-}
+  games: [],
+};
 
 // Random data for hydration
-const getRandomNumberBetween = require('./utils/_random').getRandomNumberBetween;
+const getRandomAdjectives = require('./utils/_adjectives').getRandomAdjectives;
 
 // Models
-const GAME = require ('./models/game/game');
+const GAME = require('./models/game/game');
 
-// Generate
-function getGame(){
+// Simple data
+const TITLE = require('./models/_random/titles');
+const LOREM = require('./models/_parameters/lorem');
+
+// Generate Game
+function getGame(id) {
   var game = JSON.parse(JSON.stringify(GAME));
 
-  game.adjectives.genres.id = getRandomNumberBetween(1, 5);
+  game.id = i + 1;
+  game.title = TITLE[i];
+  game.description = LOREM;
+  game.adjectives = getRandomAdjectives();
 
-  DICTIONARY.games.push({id: game.id, title: game.title});
+  DICTIONARY.games.push({ id: game.id, title: game.title });
 
   return game;
 }
 
-
-const NUMBER_OF_ITEMS = 1;
+// Launch generates
+const NUMBER_OF_ITEMS = 2;
 
 var database = {
-  games: []
-}
+  games: [],
+};
 
-for (var i = 0; i < NUMBER_OF_ITEMS; i++){
-  database.games.push(getGame());
+for (var i = 0; i < NUMBER_OF_ITEMS; i++) {
+  database.games.push(getGame(i));
 }
 
 const fs = require('fs');

@@ -3,6 +3,20 @@ const getRandomNumberBetween = function (min = 0, max = 9) {
 };
 module.exports.getRandomNumberBetween = getRandomNumberBetween;
 
+const getRandomNumberArrayExcludingUsedOneBetween = function (min = 0, max = 9) {
+  var numberTab = [];
+  for (var i = min; i < max; i++) {
+    Math.floor(Math.random() * max) + min;
+    if (numberTab.includes(i)) {
+      i--;
+    } else {
+      numberTab.push(i);
+    }
+  }
+  return numberTab;
+};
+module.exports.getRandomNumberArrayExcludingUsedOneBetween = getRandomNumberArrayExcludingUsedOneBetween;
+
 const getRandomNumberOfLength = function (length = 1) {
   var str = '';
   while (length > 0) {
@@ -46,6 +60,7 @@ const getRandomDate = function (from, to, toString = false) {
     return date;
   }
 };
+module.exports.getRandomDate = getRandomDate;
 
 const getRandomDay = function () {
   return (getRandomNumberBetween(1, 28) + '').padStart(2, '0');

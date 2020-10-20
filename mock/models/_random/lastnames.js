@@ -1,6 +1,1 @@
-module.exports = [
-  "Carlson",
-  "Mukuro",
-  "Bach",
-  "Dacosta",
-]
+module.exports = ['Carlson', 'Mukuro', 'Bach', 'Dacosta'];
